@@ -1,0 +1,11 @@
+describe('ToDoListController', function() {
+
+  before each(module('ToDoList'));
+
+  vart ctrl;
+
+  beforeEach(inject(function($controller){
+    ctrl = $controller('ToDoListController');
+  }));
+
+})
