@@ -4,8 +4,13 @@ describe('ToDoListController', function () {
 
   var ctrl;
 
-  beforeEach(inject(function ($controller) {
+  beforeEach(inject(function($controller) {
     ctrl = $controller('ToDoListController');
   }));
+
+  it('initialises with an empty tasklist', function() {
+    expect(ctrl.taskList).toEqual({});
+  })
+
 
 });
