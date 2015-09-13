@@ -4,13 +4,19 @@ describe('To Do list Tasklist', function() {
     browser.get('http://localhost:8080');
   });
 
+  var addTaskBox = element(by.className('enter-task'));
+  var task = element(by.className('task'));
+  var addTaskButton = element(by.className('btn'));
+
   it('has a title', function() {
+    addTaskBox.sendKeys('test task');
     expect(browser.getTitle()).toEqual('To Do List');
   });
 
-  it('can record a task', function() {
-    element(by.model('toDoCtrl.newTask')).sendKeys('test task')
-    expect(element(by.className('task'))).toContain('test task')
+   it('has a title two', function() {
+    addTaskBox.sendKeys('test task');
+    addTaskButton.click();
+    expect(task.getText()).toEqual('test task');
   });
 
 });

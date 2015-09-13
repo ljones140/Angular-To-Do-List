@@ -8,6 +8,7 @@ toDoList.factory('ToDoListFactory', function() {
     },
     enterTask: function(task) {
       tasks.push({task: task, complete: false, active: false});
+      console.log(task);
     }
   }
 });
