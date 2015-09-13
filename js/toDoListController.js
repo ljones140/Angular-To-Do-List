@@ -5,7 +5,14 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
   self.taskList = ToDoListFactory.taskList();
 
   self.addTask = function() {
-    ToDoListFactory.enterTask(self.newTask);
+    if (self.newTask) {
+      ToDoListFactory.enterTask(self.newTask);
+      self.newTask = ('');
+    };
+  };
+
+  self.deleteTask = function(task) {
+    ToDoListFactory.removeTask(task)
   };
 
 }]);

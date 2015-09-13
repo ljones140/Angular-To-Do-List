@@ -16,9 +16,10 @@
       <input type="text" ng-model="toDoCtrl.newTask" class="enter-task">
       <button class="btn" ng-click="toDoCtrl.addTask()">Add Task</button>
     </form>
-    <ul class="list-group">
+    <ul class="list-group task-list">
       <li  ng-repeat="task in toDoCtrl.taskList">
         <p class="task">{{ task.task }}</p>
+        <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)" ng-click="delete($index)">Delete</button>
       </li>
     </ul>
   </body>
