@@ -11,7 +11,7 @@ describe('To Do list Tasklist', function() {
   var doneMark = element(by.className('done-mark'));
   var activeFilter = element(by.className('show-active'));
   var taskCount = element(by.className('task-count'));
-  var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
+
   // var completeCount = element(by.className('complete-tasks'));
 
   it('has a title', function() {
@@ -22,7 +22,7 @@ describe('To Do list Tasklist', function() {
   it('has a title two', function() {
     addTaskBox.sendKeys('test task');
     addTaskButton.click();
-    expect(task.getText()).toEqual('test task todo');
+    expect(element(by.className('task')).getText()).toEqual('test task todo');
   });
 
   it('allows deletion of task', function() {
@@ -59,23 +59,27 @@ describe('To Do list Tasklist', function() {
     addTaskBox.sendKeys('test two');
     addTaskButton.click();
     activeFilter.click();
+    var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
     expect(tasks.last().isDisplayed()).toBeTruthy();
   });
 
   it('shows a count of tasks', function() {
     addTaskBox.sendKeys('test task');
     addTaskButton.click();
-    expect(taskCount.getText()).toEqual('total tasks: 1')
+    expect(taskCount.getText()).toEqual('total tasks: 1');
     addTaskBox.sendKeys('test task 2');
     addTaskButton.click();
-    expect(taskCount.getText()).toEqual('total tasks: 2')
+    expect(taskCount.getText()).toEqual('total tasks: 2');
   });
 
-
-
-
-// element.all(by.css('.done-mark')).get(2).click();
-
+  it('removes all completed tasks', function() {
+    addTaskBox.sendKeys('test task');
+    addTaskButton.click();
+    expect(taskCount.getText()).toEqual('total tasks: 1');
+    doneMark.click();
+    element(by.className('completed-remove')).click();
+    expect(taskCount.getText()).toEqual('total tasks: 0');
+  });
 
 
 

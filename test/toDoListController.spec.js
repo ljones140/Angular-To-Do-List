@@ -40,5 +40,23 @@ describe('ToDoListController', function () {
     expect(ctrl.taskList[0].complete).toEqual(false);
   });
 
+  it('removes all complete tasks', function () {
+    ctrl.newTask = 'test task'
+    ctrl.addTask();
+    ctrl.markAsDone(ctrl.taskList[0]);
+    ctrl.removeCompleteTasks();
+    expect(ctrl.taskList).toEqual([]);
+  });
+
+  it('removes only complete tasks', function () {
+    ctrl.newTask = 'test task'
+    ctrl.addTask();
+    ctrl.newTask = 'test task2'
+    ctrl.addTask();
+    ctrl.markAsDone(ctrl.taskList[0]);
+    ctrl.removeCompleteTasks();
+    expect(ctrl.taskList).toEqual([{task: 'test task2', complete: false}]);
+  });
+
 
 });

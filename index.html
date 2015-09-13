@@ -17,6 +17,7 @@
       <li class="show-active"><button ng-click="toDoCtrl.filter('active')">Active</button></li>
       <li class="show-done" ><button ng-click="toDoCtrl.filter('done')">Done</button></li>
     </ul>
+      <button class="btn-delete completed-remove " ng-click="toDoCtrl.removeCompleteTasks()">Remove completed</button>
     <div class="task-count">total tasks: {{ toDoCtrl.taskList.length }}</div>
     <form class="form-horizontal">
       <input type="text" ng-model="toDoCtrl.newTask" class="enter-task">
@@ -29,7 +30,6 @@
           <input type="checkbox" class="done-mark" ng-click="toDoCtrl.markAsDone(task);">
           <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)" ng-click="delete($index)">Delete</button>
         </div>
-
       </li>
     </ul>
   </body>

@@ -21,7 +21,6 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
 
   self.filter = function(filtertype) {
     self.filtertype = filtertype
-    console.log(self.filtertype);
   };
 
   self.checkShow = function(complete) {
@@ -34,5 +33,7 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
     };
   };
 
-
+  self.removeCompleteTasks = function() {
+    ToDoListFactory.removeCompleteTasks();
+  };
 }]);
