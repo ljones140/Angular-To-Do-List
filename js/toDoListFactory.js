@@ -7,7 +7,7 @@ toDoList.factory('ToDoListFactory', function() {
       return tasks;
     },
     enterTask: function(task) {
-      tasks.push( { task: task, complete: false, active: false } );
+      tasks.push( { task: task, complete: false } );
     },
     removeTask: function(task) {
       var index = tasks.indexOf(task);

@@ -9,6 +9,7 @@ describe('To Do list Tasklist', function() {
   var addTaskButton = element(by.className('btn'));
   var taskList = element(by.className('task-list'));
   var doneMark = element(by.className('done-mark'));
+  var activeFilter = element(by.className('show-all'));
   // var completeCount = element(by.className('complete-tasks'));
 
   it('has a title', function() {
@@ -46,9 +47,20 @@ describe('To Do list Tasklist', function() {
     expect(task.getText()).toEqual('test task Done');
     doneMark.click();
     expect(task.getText()).toEqual('test task todo');
-
   });
 
+  it('allows task to be filtered by active', function() {
+    addTaskBox.sendKeys('test task');
+    addTaskButton.click();
+    expect(task.getText()).toEqual('test task todo');
+    doneMark.click();
+    addTaskBox.sendKeys('test two');
+    activeFilter.click();
+    expect(task.getText()).toEqual('test task Done');
+  });
+
+
+// element.all(by.css('.done-mark')).get(2).click();
 
 
 
