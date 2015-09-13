@@ -1,19 +1,13 @@
 toDoList.factory('ToDoListFactory', function() {
 
-  var tasks = {}
+  var tasks = []
 
   return {
     taskList: function() {
       return tasks;
     },
-    subtract: function(x, y) {
-      return x - y;
-    },
-    divide: function(x, y) {
-      return x / y;
-    },
-    multiply: function(x, y) {
-      return x * y;
+    enterTask: function(task) {
+      tasks.push({task: task, complete: false, active: false});
     }
   }
 });

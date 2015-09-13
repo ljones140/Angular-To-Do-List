@@ -9,7 +9,12 @@ describe('ToDoListController', function () {
   }));
 
   it('initialises with an empty tasklist', function() {
-    expect(ctrl.taskList).toEqual({});
+    expect(ctrl.taskList).toEqual([]);
+  })
+
+  it('enters task to tasklist', function() {
+    ctrl.addTask('test task');
+    expect(ctrl.taskList).toEqual([{task: 'test task', complete: false, active: false}])
   })
 
 

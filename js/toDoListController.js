@@ -4,5 +4,8 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
 
   self.taskList = ToDoListFactory.taskList();
 
+  self.addTask = function(task) {
+    ToDoListFactory.enterTask(task);
+  };
 
 }]);

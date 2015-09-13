@@ -31,6 +31,7 @@ karma start test/karma.conf.js
 ```
 
 
+set up with a factory to seperate responsibility of controller and logic
 
 
 
