@@ -32,4 +32,12 @@ describe('ToDoListController', function () {
     expect(ctrl.taskList[0].complete).toEqual(true);
   });
 
+  it('records task as incomplete if complete true', function () {
+    ctrl.newTask = 'test task'
+    ctrl.addTask();
+    ctrl.markAsDone(ctrl.taskList[0]);
+    ctrl.markAsDone(ctrl.taskList[0]);
+    expect(ctrl.taskList[0].complete).toEqual(false);
+  });
+
 });

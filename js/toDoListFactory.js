@@ -14,7 +14,7 @@ toDoList.factory('ToDoListFactory', function() {
       tasks.splice(index,1)
     },
     taskComplete: function(task) {
-      task.complete = true;
+      (task.complete === false) ? task.complete = true : task.complete = false;
     }
   }
 });

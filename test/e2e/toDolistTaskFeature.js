@@ -38,6 +38,17 @@ describe('To Do list Tasklist', function() {
 
   });
 
+  it('allows task to unmarked', function() {
+    addTaskBox.sendKeys('test task');
+    addTaskButton.click();
+    expect(task.getText()).toEqual('test task todo');
+    doneMark.click();
+    expect(task.getText()).toEqual('test task Done');
+    doneMark.click();
+    expect(task.getText()).toEqual('test task todo');
+
+  });
+
 
 
 
