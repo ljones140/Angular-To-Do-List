@@ -12,8 +12,9 @@ toDoList.factory('ToDoListFactory', function() {
     removeTask: function(task) {
       var index = tasks.indexOf(task);
       tasks.splice(index,1)
-
-
+    },
+    taskComplete: function(task) {
+      task.complete = true;
     }
   }
 });

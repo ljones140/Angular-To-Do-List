@@ -10,19 +10,26 @@ describe('ToDoListController', function () {
 
   it('initialises with an empty tasklist', function() {
     expect(ctrl.taskList).toEqual([]);
-  })
+  });
 
   it('enters task to tasklist', function() {
     ctrl.newTask = 'test task'
     ctrl.addTask();
     expect(ctrl.taskList).toEqual([{task: 'test task', complete: false, active: false}])
-  })
+  });
 
   it('deletes task from task list', function() {
     ctrl.newTask = 'test task'
     ctrl.addTask();
     ctrl.deleteTask(0);
     expect(ctrl.taskList).toEqual([]);
-  } )
+  });
+
+  it('records task as done', function() {
+    ctrl.newTask = 'test task'
+    ctrl.addTask();
+    ctrl.markAsDone(ctrl.taskList[0]);
+    expect(ctrl.taskList[0].complete).toEqual(true);
+  });
 
 });

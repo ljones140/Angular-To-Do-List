@@ -15,4 +15,8 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
     ToDoListFactory.removeTask(task)
   };
 
+  self.markAsDone = function(task) {
+    ToDoListFactory.taskComplete(task);
+  };
+
 }]);

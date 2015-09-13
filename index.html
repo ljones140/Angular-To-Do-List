@@ -18,8 +18,10 @@
     </form>
     <ul class="list-group task-list">
       <li  ng-repeat="task in toDoCtrl.taskList">
-        <p class="task">{{ task.task }}</p>
+        <p class="task">{{ task.task }} {{ task.complete && 'Done' || 'todo' }}</p>
+        <input type="checkbox" class="done-mark" ng-click="toDoCtrl.markAsDone(task);">
         <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)" ng-click="delete($index)">Delete</button>
+
       </li>
     </ul>
   </body>
