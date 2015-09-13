@@ -15,7 +15,7 @@ describe('ToDoListController', function () {
   it('enters task to tasklist', function() {
     ctrl.newTask = 'test task'
     ctrl.addTask();
-    expect(ctrl.taskList).toEqual([{task: 'test task', complete: false, active: false}])
+    expect(ctrl.taskList).toEqual([{task: 'test task', complete: false}])
   });
 
   it('deletes task from task list', function() {
@@ -39,5 +39,6 @@ describe('ToDoListController', function () {
     ctrl.markAsDone(ctrl.taskList[0]);
     expect(ctrl.taskList[0].complete).toEqual(false);
   });
+
 
 });
