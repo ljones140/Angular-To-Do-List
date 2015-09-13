@@ -10,6 +10,8 @@ describe('To Do list Tasklist', function() {
   var taskList = element(by.className('task-list'));
   var doneMark = element(by.className('done-mark'));
   var activeFilter = element(by.className('show-active'));
+  var doneFilter = element(by.className('show-done'));
+  var allFilter = element(by.className('show-all'));
   var taskCount = element(by.className('task-count'));
 
   // var completeCount = element(by.className('complete-tasks'));
@@ -60,8 +62,36 @@ describe('To Do list Tasklist', function() {
     addTaskButton.click();
     activeFilter.click();
     var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
-    expect(tasks.last().isDisplayed()).toBeTruthy();
+    expect(tasks.last().getText()).toContain('test two');
+    expect(tasks.first().getText()).toContain('');
   });
+
+  it('allows task to be filtered by complete', function() {
+    addTaskBox.sendKeys('test task');
+    addTaskButton.click();
+    expect(task.getText()).toEqual('test task todo');
+    doneMark.click();
+    addTaskBox.sendKeys('test two');
+    addTaskButton.click();
+    doneFilter.click();
+    var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
+    expect(tasks.first().getText()).toContain('test task Done');
+    expect(tasks.last().getText()).toContain('');
+  });
+
+  it('shows all tasks with active', function() {
+    addTaskBox.sendKeys('test task');
+    addTaskButton.click();
+    expect(task.getText()).toEqual('test task todo');
+    doneMark.click();
+    addTaskBox.sendKeys('test two');
+    addTaskButton.click();
+    allFilter.click();
+    var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
+    expect(tasks.first().getText()).toContain('test task Done');
+    expect(tasks.last().getText()).toContain('test two todo');
+  });
+
 
   it('shows a count of tasks', function() {
     addTaskBox.sendKeys('test task');
