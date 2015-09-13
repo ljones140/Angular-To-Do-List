@@ -1,7 +1,8 @@
-toDoList.controller('ToDoListController', [function() {
+toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListFactory) {
 
   var self = this;
 
-  self.taskList = {}
+  self.taskList = ToDoListFactory.taskList();
+
 
 }]);
