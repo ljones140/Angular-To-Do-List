@@ -18,7 +18,7 @@ webdriver-manager start
 ```
 another run
 ```
-http-server
+http-server & webdriver-manager start
 ```
 then to run the tests
 

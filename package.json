@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start test/karma.conf.js",
-    "start": "http-server"
+    "start": "http-server & webdriver-manager start "
 
   },
   "repository": {
