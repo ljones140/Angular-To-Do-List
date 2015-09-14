@@ -14,8 +14,6 @@ describe('To Do list Tasklist', function() {
   var allFilter = element(by.className('show-all'));
   var taskCount = element(by.className('task-count'));
 
-  // var completeCount = element(by.className('complete-tasks'));
-
   it('has a title', function() {
     addTaskBox.sendKeys('test task');
     expect(browser.getTitle()).toEqual('To Do List');

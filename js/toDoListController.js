@@ -36,4 +36,5 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
   self.removeCompleteTasks = function() {
     ToDoListFactory.removeCompleteTasks();
   };
+
 }]);
