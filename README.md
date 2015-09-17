@@ -30,6 +30,10 @@ Karma unit tests
 karma start test/karma.conf.js
 ```
 
+#improvents required.
+* implement a filter rather tahn ng-show for the filtering of tasks
+* split unit testing between factory and controller
+* styling
 
 set up with a factory to seperate responsibility of controller and logic
 

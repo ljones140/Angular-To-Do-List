@@ -13,6 +13,8 @@ describe('To Do list Tasklist', function() {
   var doneFilter = element(by.className('show-done'));
   var allFilter = element(by.className('show-all'));
   var taskCount = element(by.className('task-count'));
+  var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
+
 
   it('has a title', function() {
     addTaskBox.sendKeys('test task');
@@ -59,7 +61,6 @@ describe('To Do list Tasklist', function() {
     addTaskBox.sendKeys('test two');
     addTaskButton.click();
     activeFilter.click();
-    var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
     expect(tasks.last().getText()).toContain('test two');
     expect(tasks.first().getText()).toContain('');
   });
@@ -72,7 +73,6 @@ describe('To Do list Tasklist', function() {
     addTaskBox.sendKeys('test two');
     addTaskButton.click();
     doneFilter.click();
-    var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
     expect(tasks.first().getText()).toContain('test task Done');
     expect(tasks.last().getText()).toContain('');
   });
@@ -85,7 +85,6 @@ describe('To Do list Tasklist', function() {
     addTaskBox.sendKeys('test two');
     addTaskButton.click();
     allFilter.click();
-    var tasks = element.all(by.repeater('task in toDoCtrl.taskList'))
     expect(tasks.first().getText()).toContain('test task Done');
     expect(tasks.last().getText()).toContain('test two todo');
   });
@@ -108,7 +107,4 @@ describe('To Do list Tasklist', function() {
     element(by.className('completed-remove')).click();
     expect(taskCount.getText()).toEqual('total tasks: 0');
   });
-
-
-
 });
