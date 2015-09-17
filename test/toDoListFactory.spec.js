@@ -17,6 +17,7 @@ describe('factory: ToDoListFactory', function() {
     expect(toDoListFactory.task('show')).toEqual([{task: 'test task', complete: false}]);
   });
 
+
   it('deletes task from task list', function() {
     var newTask = 'test task'
     toDoListFactory.task('create', 'test task');

@@ -2,11 +2,11 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
 
   var self = this;
 
-  self.taskList = ToDoListFactory.taskList();
+  self.taskList = ToDoListFactory.task('show');
 
   self.addTask = function() {
     if (self.newTask) {
-      ToDoListFactory.enterTask(self.newTask);
+      ToDoListFactory.task('create', self.newTask);
       self.newTask = ('');
     };
   };
