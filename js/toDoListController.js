@@ -2,7 +2,11 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
 
   var self = this;
 
-  self.taskList = ToDoListFactory.task('show');
+  self.taskList = function() {
+    return ToDoListFactory.task('show');
+  };
+
+  self.taskListView = self.taskList();
 
   self.addTask = function() {
     if (self.newTask) {
@@ -12,11 +16,11 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
   };
 
   self.deleteTask = function(task) {
-    ToDoListFactory.removeTask(task)
+    ToDoListFactory.task('delete', task)
   };
 
   self.markAsDone = function(task) {
-    ToDoListFactory.taskComplete(task);
+    ToDoListFactory.task('update', task);
   };
 
   self.filter = function(filtertype) {
@@ -34,7 +38,7 @@ toDoList.controller('ToDoListController', ['ToDoListFactory', function(ToDoListF
   };
 
   self.removeCompleteTasks = function() {
-    ToDoListFactory.removeCompleteTasks();
+    ToDoListFactory.task('clear');
   };
 
 }]);

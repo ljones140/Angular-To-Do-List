@@ -18,13 +18,13 @@
       <li class="show-done" ><button ng-click="toDoCtrl.filter('done')">Done</button></li>
     </ul>
       <button class="btn-delete completed-remove " ng-click="toDoCtrl.removeCompleteTasks()">Remove completed</button>
-    <div class="task-count">total tasks: {{ toDoCtrl.taskList.length }}</div>
+    <div class="task-count">total tasks: {{ toDoCtrl.taskListView.length }}</div>
     <form class="form-horizontal">
       <input type="text" ng-model="toDoCtrl.newTask" class="enter-task">
       <button class="btn" ng-click="toDoCtrl.addTask()">Add Task</button>
     </form>
     <ul class="list-group task-list" >
-      <li ng-repeat="task in toDoCtrl.taskList">
+      <li ng-repeat="task in toDoCtrl.taskListView">
         <div class="todo-item" ng-show="toDoCtrl.checkShow(task.complete)">
           <p class="task" >{{ task.task }} {{ task.complete && 'Done' || 'todo' }}</p>
           <input type="checkbox" class="done-mark" ng-click="toDoCtrl.markAsDone(task);">
