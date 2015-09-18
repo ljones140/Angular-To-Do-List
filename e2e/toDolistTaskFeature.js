@@ -74,7 +74,7 @@ describe('To Do list Tasklist', function() {
     addTaskButton.click();
     doneFilter.click();
     expect(tasks.first().getText()).toContain('test task Done');
-    expect(tasks.last().getText()).toContain('');
+    expect(tasks.last().isDisplayed()).toBefalse;
   });
 
   it('shows all tasks with active', function() {

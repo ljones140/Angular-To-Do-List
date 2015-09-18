@@ -13,9 +13,9 @@
   </head>
   <body ng-controller="ToDoListController as toDoCtrl" >
     <ul ng-model="filterType" class="nav nav-pills">
-      <li class="show-all" ><button ng-click="toDoCtrl.filter('all')">All</button></li>
-      <li class="show-active"><button ng-click="toDoCtrl.filter('active')">Active</button></li>
-      <li class="show-done" ><button ng-click="toDoCtrl.filter('done')">Done</button></li>
+      <li class="show-all" ><button ng-click="myFilter = {}">All</button></li>
+      <li class="show-active"><button ng-click="myFilter = { complete: false }">Active</button></li>
+      <li class="show-done" ><button ng-click="myFilter = { complete: true }">Done</button></li>
     </ul>
       <button class="btn-delete completed-remove " ng-click="toDoCtrl.removeCompleteTasks()">Remove completed</button>
     <div class="task-count">total tasks: {{ toDoCtrl.taskListView.length }}</div>
@@ -24,8 +24,8 @@
       <button class="btn" ng-click="toDoCtrl.addTask()">Add Task</button>
     </form>
     <ul class="list-group task-list" >
-      <li ng-repeat="task in toDoCtrl.taskListView">
-        <div class="todo-item" ng-show="toDoCtrl.checkShow(task.complete)">
+      <li ng-repeat="task in toDoCtrl.taskListView | filter:myFilter">
+        <div class="todo-item" >
           <p class="task" >{{ task.task }} {{ task.complete && 'Done' || 'todo' }}</p>
           <input type="checkbox" class="done-mark" ng-click="toDoCtrl.markAsDone(task);">
           <button class="delete-btn" ng-click="toDoCtrl.deleteTask(task)" ng-click="delete($index)">Delete</button>
