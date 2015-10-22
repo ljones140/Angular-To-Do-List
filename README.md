@@ -1,22 +1,35 @@
-# Todo Challenge
+# To Do List
 
-# installation guide
+To Do List application created in Angular.js
+
+## Approach
+
+ The approach I have taken with my To Do List is to use Angular's design conventions to separate the responsibility of the controller, view and logic. To do this I have three main parts of my application that control the logic.
+
+* index.html   
+This is view and contains the mark up and binding for the ng elements.
+
+* toDoListController.js  
+This is the controller that routes the user actions on the view to the data of the task list
+
+* ToDoListFactory.js  
+This factory is responsible for the logic of the to do list. The controller passes all requests to change data on the task list to the factory which will then carry out the task.
+
+
+## Testing
+
+The application has been unit tested with Karma and end to end feature tested with Protractor. I am particularly proud of the unit tests as in the controller tests the factory is stubbed out and in the Factory test the controller is stubbed out.
+
+## Installation Guide
 
 clone the repo
 
-will need to install the bower compontents and npn modules
 ```
 bower install
 npm install
 ```
 
-in order to feature test with protractor
-require 3 terminal tabs open
-in one run
-```
-webdriver-manager start
-```
-another run
+In order to feature test with protractor
 ```
 http-server & webdriver-manager start
 ```
@@ -30,32 +43,7 @@ Karma unit tests
 karma start test/karma.conf.js
 ```
 
-#improvents required.
-* implement a filter rather tahn ng-show for the filtering of tasks
-* split unit testing between factory and controller
-* styling
-
-set up with a factory to seperate responsibility of controller and logic
-
-
-
-* Deadline: submit completed pull request by 9am on Monday
-* You may use whatever level of JavaScript you feel comfortable with - pure JS, jQuery, Angular, or whatever weird and wonderful framework you want to try. Extra points for DogeScript
-
-Steps
--------
-
-1. Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
-2. Fork this repo, and clone to your local machine
-3. Complete the following challenge:
-
-## Challenge
-
-![Todo mockup](https://makersacademy.mybalsamiq.com/mockups/2914603.png?key=afabb09aef2901a2732515ae4349c1ec0458294b)
-
-Build a Todo list as a mini front-end application. You don't have to use a database, the front-end is more important - you can use an appropriate data structure stored somewhere in your JavaScript (this time only!)
-
-Here are the core user stories:
+User stories:
 
 ```
 As a forgetful person
@@ -69,44 +57,12 @@ So that I have more time to think about other things
 As a person who actually gets stuff done
 I want to mark my tasks as done
 So that I don't do them twice
-```
 
-Here are some other user stories you may choose to implement:
-
-```
 As a person with a lot of tasks
 I want to be able to filter my tasks by "All", "Active", "Complete"
 So that I only see the relevant tasks
-
-As a person who doesn't like counting by hand
-I want to see a total number of tasks
-So that I don't have to count
 
 As someone who has done lots of stuff
 I want to be able to clear my completed tasks
 So I never see them again
 ```
-
-As you may imagine, implementing a To-do list is very much a solved problem. However, we are mainly interested in seeing how you approach testing and design. We are looking for:
-
-* well written, well structured acceptance and unit tests
-* clear and expressive JavaScript
-* good HTML5 markup
-
-Don't worry about deployment, and make sure you read the CONTRIBUTING.md when submitting a pull request.
-
-## Extensions
-
-* Deploy the app
-* Create a persistance layer (e.g. MongoDB), or use LocalStorage or the filesystem through Node
-* Make it look purdy (CSS) - try a framework like Bootstrap or Foundation
-
-## CI
-
-Read the `.travis.yml` if any of the steps below don't make sense!
-
-* Make sure you have set up `npm test` in your `package.json` so that it runs your Karma tests
-* Make sure you have your Protractor config file at `e2e/conf.js`
-* Make sure `npm start` spins up whatever serves up your app - `http-server`, Sinatra or Node
-
-Good luck!

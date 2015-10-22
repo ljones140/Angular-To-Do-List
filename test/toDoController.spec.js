@@ -1,5 +1,5 @@
 describe('ToDoListController', function() {
-  beforeEach(module('ToDoList')); // creating a mock module
+  beforeEach(module('ToDoList'));
   var ctrl;
 
   describe('when using todo list', function() {
